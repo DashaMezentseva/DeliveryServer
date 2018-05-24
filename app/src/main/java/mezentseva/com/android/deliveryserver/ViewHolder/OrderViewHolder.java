@@ -9,7 +9,7 @@ import mezentseva.com.android.deliveryserver.Interface.ItemClickListener;
 import mezentseva.com.android.deliveryserver.R;
 
 public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
-        View.OnLongClickListener,
+        //View.OnLongClickListener,
         View.OnCreateContextMenuListener {
 
     public TextView txtOrderId, txtOrderStatus, txtOrderPhone, txtOrderAddress;
@@ -25,7 +25,7 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnC
         txtOrderPhone = (TextView)itemView.findViewById(R.id.order_phone);
 
         itemView.setOnClickListener(this);
-        itemView.setOnLongClickListener(this);
+        //itemView.setOnLongClickListener(this);
         itemView.setOnCreateContextMenuListener(this);
     }
 
@@ -43,12 +43,12 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnC
         menu.setHeaderTitle("Select the action");
 
         menu.add(0,0,getAdapterPosition(),"Update");
-        menu.add(0,1,getAdapterPosition(),"Update");
+        menu.add(0,1,getAdapterPosition(),"Delete");
     }
 
-    @Override
-    public boolean onLongClick(View v) {
-        itemClickListener.onClick(v,getAdapterPosition(),true);
-        return true;
-    }
+    //@Override
+    // public boolean onLongClick(View v) {
+    //    itemClickListener.onClick(v,getAdapterPosition(),true);
+    //    return true;
+    //}
 }

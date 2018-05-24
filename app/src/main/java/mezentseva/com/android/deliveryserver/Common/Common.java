@@ -7,6 +7,8 @@ import android.graphics.Paint;
 
 import mezentseva.com.android.deliveryserver.Model.Request;
 import mezentseva.com.android.deliveryserver.Model.User;
+import mezentseva.com.android.deliveryserver.Remote.APIService;
+import mezentseva.com.android.deliveryserver.Remote.FCMRetrofitClient;
 import mezentseva.com.android.deliveryserver.Remote.IGeoCoordinates;
 import mezentseva.com.android.deliveryserver.Remote.RetrofitClient;
 
@@ -22,6 +24,8 @@ public class Common {
 
     public static final String baseUrl = "https://maps.googleapis.com";
 
+    public static final String fcmUrl = "https://fcm.googleapis.com/";
+
     public static  String convertCodeToStatus(String code){
         if (code.equals("0"))
             return "Placed";
@@ -29,6 +33,10 @@ public class Common {
             return "On my way";
         else
             return "Shipped";
+    }
+
+    public static APIService getFCMClient(){
+        return FCMRetrofitClient.getClient(fcmUrl).create(APIService.class);
     }
 
     public static IGeoCoordinates getGeoCodeService(){
