@@ -320,6 +320,14 @@ public class Home extends AppCompatActivity
             startActivity(orders);
         }
 
+        else if (id == R.id.nav_log_out) {
+
+            Intent signIn = new Intent(Home.this, SignIn.class);
+            startActivity(signIn);
+        }
+
+
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
